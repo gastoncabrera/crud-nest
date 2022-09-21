@@ -7,7 +7,8 @@ import { MongoClient } from 'mongodb';
     {
       provide: 'MONGO',
       useFactory: async () => {
-        const client = new MongoClient(process.env.URL);
+        const uri = process.env.MONGODB_URI;
+        const client = new MongoClient(uri);
         await client.connect();
         const database = client.db('crud-list');
         return database;
