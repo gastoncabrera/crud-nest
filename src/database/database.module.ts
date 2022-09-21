@@ -7,9 +7,7 @@ import { MongoClient } from 'mongodb';
     {
       provide: 'MONGO',
       useFactory: async () => {
-        const url =
-          'mongodb+srv://gaston:39186cabrera@cluster0.7luyitb.mongodb.net/?retryWrites=true&w=majority';
-        const client = new MongoClient(url);
+        const client = new MongoClient(process.env.URL);
         await client.connect();
         const database = client.db('crud-list');
         return database;
