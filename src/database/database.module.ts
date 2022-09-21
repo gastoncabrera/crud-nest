@@ -8,7 +8,7 @@ import { MongoClient } from 'mongodb';
       provide: 'MONGO',
       useFactory: async () => {
         const url =
-          'mongodb://root:root@localhost:27017/?authMechanism=DEFAULT&directConnection=true';
+          'mongodb+srv://gaston:39186cabrera@cluster0.7luyitb.mongodb.net/?retryWrites=true&w=majority';
         const client = new MongoClient(url);
         await client.connect();
         const database = client.db('crud-list');
