@@ -7,10 +7,11 @@ import { MongoClient } from 'mongodb';
     {
       provide: 'MONGO',
       useFactory: async () => {
-        const uri = process.env.MONGODB_URI;
+        const uri =
+          'mongodb+srv://root:G4TAVUFq2vFkfjj4@cluster0.uiniqgh.mongodb.net/?retryWrites=true&w=majority';
         const client = new MongoClient(uri);
         await client.connect();
-        const database = client.db('crud-list');
+        const database = client.db('nest');
         return database;
       },
     },
